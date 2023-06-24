@@ -1,0 +1,23 @@
+// SPDX-License-Identifier: MIT
+// write a smart contract that implements the require(), assert() and revert() statements.
+pragma solidity ^0.8.0;
+
+contract ErrorHandlingContract {
+    function divide(uint256 _dividend, uint256 _divisor) public pure returns (uint256) {
+        // require statement
+        require(_divisor != 0, "Divisor cannot be zero");
+
+        // assert statement
+        assert(_dividend >= _divisor);
+
+        // Perform the division
+        uint256 result = _dividend / _divisor;
+
+        // revert statement
+        if (result == 42) {
+            revert("Unexpected result: 42");
+        }
+
+        return result;
+    }
+}
